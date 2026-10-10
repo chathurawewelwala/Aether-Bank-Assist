@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aether-config
+  namespace: aether
+data:
+  AUTH_MODE: "local"
+  KEYCLOAK_URL: "http://keycloak:8080"
+  KEYCLOAK_PUBLIC_URL: "http://keycloak.local"
+  KEYCLOAK_REALM: "aether"
+  MOCK_DOCS_PATH: "/app/data/mock_docs"
+  CORS_ORIGINS: '["*"]'

@@ -1,0 +1,69 @@
+{
+  "realm": "aether",
+  "enabled": true,
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "roles": {
+    "realm": [
+      { "name": "aether-viewer", "description": "Viewer role" },
+      { "name": "aether-analyst", "description": "Analyst role" },
+      { "name": "aether-admin", "description": "Administrator role" }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "aether-web",
+      "name": "Aether Dashboard",
+      "enabled": true,
+      "publicClient": true,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "redirectUris": ["http://localhost:4200/*", "http://localhost/*"],
+      "webOrigins": ["http://localhost:4200", "http://localhost", "*"],
+      "attributes": { "pkce.code.challenge.method": "S256" }
+    },
+    {
+      "clientId": "aether-api",
+      "name": "Aether API",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "aether-api-secret",
+      "serviceAccountsEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"]
+    }
+  ],
+  "users": [
+    {
+      "username": "analyst",
+      "enabled": true,
+      "email": "analyst@aether.bank",
+      "firstName": "Ana",
+      "lastName": "Lyst",
+      "credentials": [{ "type": "password", "value": "password123", "temporary": false }],
+      "realmRoles": ["aether-analyst"]
+    },
+    {
+      "username": "viewer",
+      "enabled": true,
+      "email": "viewer@aether.bank",
+      "firstName": "Vic",
+      "lastName": "Viewer",
+      "credentials": [{ "type": "password", "value": "password123", "temporary": false }],
+      "realmRoles": ["aether-viewer"]
+    },
+    {
+      "username": "admin",
+      "enabled": true,
+      "email": "admin@aether.bank",
+      "firstName": "Ada",
+      "lastName": "Admin",
+      "credentials": [{ "type": "password", "value": "password123", "temporary": false }],
+      "realmRoles": ["aether-admin"]
+    }
+  ]
+}
